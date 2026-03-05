@@ -1,0 +1,3 @@
+🚨CAUTION🚨ALERT🚨WIUWIEU🚨WIUWIEU🚨THIS APP WAS MADE WITH THE HELP OF AI🚨NOT INTO IT? JUST PASS BY🚨MADE APP FOR MYSELF; FEEL FREE TO USE🚨NO REGULAR UPDATES🚨
+
+In the moment the app only works within the same network als lidarr.
