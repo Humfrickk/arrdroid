@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.arrdroid.data.Settings
 import com.example.arrdroid.data.SettingsStorage
+import com.example.arrdroid.repository.LidarrRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -14,11 +15,13 @@ import kotlinx.coroutines.launch
 
 data class SettingsUiState(
     val baseUrl: String = "",
-    val apiKey: String = ""
+    val apiKey: String = "",
+    val testing: Boolean = false
 )
 
 class SettingsViewModel(
-    private val storage: SettingsStorage
+    private val storage: SettingsStorage,
+    private val repository: LidarrRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -48,14 +51,38 @@ class SettingsViewModel(
     fun save() {
         val baseUrl = _uiState.value.baseUrl.trim()
         val apiKey = _uiState.value.apiKey.trim()
-        if (!baseUrl.startsWith("https://")) {
+        if (baseUrl.isBlank() || apiKey.isBlank()) {
             viewModelScope.launch {
-                _messages.emit("Achtung: Für Schutz deines API-Keys solltest du HTTPS verwenden.")
+                _messages.emit("Bitte URL und API-Key ausfüllen.")
             }
+            return
+        }
+        if (!baseUrl.startsWith("https://") && !baseUrl.startsWith("http://")) {
+            viewModelScope.launch {
+                _messages.emit("URL muss mit http:// oder https:// beginnen.")
+            }
+            return
         }
         storage.save(Settings(baseUrl, apiKey))
         viewModelScope.launch {
             _messages.emit("Einstellungen gespeichert.")
+        }
+    }
+
+    fun testConnection() {
+        save()
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(testing = true)
+            val result = repository.testConnection()
+            _uiState.value = _uiState.value.copy(testing = false)
+            result.fold(
+                onSuccess = { status ->
+                    _messages.emit("✅ Verbunden! Lidarr ${status.version ?: "unbekannt"}")
+                },
+                onFailure = { e ->
+                    _messages.emit("❌ Verbindung fehlgeschlagen: ${e.message}")
+                }
+            )
         }
     }
 
@@ -64,10 +91,10 @@ class SettingsViewModel(
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     if (modelClass.isAssignableFrom(SettingsViewModel::class.java)) {
+                        val storage = SettingsStorage(context.applicationContext)
+                        val repo = LidarrRepository(storage)
                         @Suppress("UNCHECKED_CAST")
-                        return SettingsViewModel(
-                            SettingsStorage(context.applicationContext)
-                        ) as T
+                        return SettingsViewModel(storage, repo) as T
                     }
                     throw IllegalArgumentException("Unknown ViewModel class")
                 }

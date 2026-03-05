@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+        Cleartext (HTTP) wird erlaubt, weil Lidarr im lokalen Netzwerk
+        häufig ohne TLS/HTTPS läuft.
+        Für Zugriff über das Internet sollte unbedingt HTTPS verwendet werden.
+    -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+
+

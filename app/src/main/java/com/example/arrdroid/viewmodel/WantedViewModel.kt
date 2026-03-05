@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.arrdroid.data.SettingsStorage
 import com.example.arrdroid.repository.LidarrRepository
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
@@ -19,7 +21,8 @@ data class WantedAlbumUi(
 data class WantedUiState(
     val loading: Boolean = false,
     val albums: List<WantedAlbumUi> = emptyList(),
-    val error: String? = null
+    val error: String? = null,
+    val searchingIds: Set<Int> = emptySet()  // Album-IDs die gerade gesucht werden
 )
 
 class WantedViewModel(
@@ -28,6 +31,9 @@ class WantedViewModel(
 
     private val _uiState = MutableStateFlow(WantedUiState())
     val uiState = _uiState.asStateFlow()
+
+    private val _messages = MutableSharedFlow<String>()
+    val messages = _messages.asSharedFlow()
 
     init {
         refresh()
@@ -62,9 +68,36 @@ class WantedViewModel(
 
     fun triggerSearch(albumId: Int) {
         viewModelScope.launch {
-            repository.triggerMissingSearch(albumId)
-            // optional: danach neu laden
-            refresh()
+            // Markiere dieses Album als "wird gesucht"
+            _uiState.value = _uiState.value.copy(
+                searchingIds = _uiState.value.searchingIds + albumId
+            )
+
+            val result = repository.triggerAlbumSearch(albumId)
+            result.fold(
+                onSuccess = { cmd ->
+                    _messages.emit("✅ Suche gestartet (${cmd.commandName ?: "AlbumSearch"})")
+                },
+                onFailure = { e ->
+                    _messages.emit("❌ Suche fehlgeschlagen: ${e.message}")
+                }
+            )
+
+            // Entferne Markierung
+            _uiState.value = _uiState.value.copy(
+                searchingIds = _uiState.value.searchingIds - albumId
+            )
+        }
+    }
+
+    fun searchAllMissing() {
+        viewModelScope.launch {
+            _messages.emit("🔍 Suche alle fehlenden Alben…")
+            val result = repository.triggerMissingAlbumSearch()
+            result.fold(
+                onSuccess = { _messages.emit("✅ Suche für alle fehlenden Alben gestartet") },
+                onFailure = { e -> _messages.emit("❌ Fehler: ${e.message}") }
+            )
         }
     }
 

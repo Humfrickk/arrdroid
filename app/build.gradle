@@ -1,6 +1,7 @@
 plugins {
     id "com.android.application"
     id "org.jetbrains.kotlin.android"
+    id "com.google.devtools.ksp"
 }
 
 android {
@@ -32,7 +33,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.3"
+        // Compose Compiler passend zu Kotlin 1.9.22
+        kotlinCompilerExtensionVersion "1.5.8"
     }
 
     compileOptions {
@@ -46,19 +48,21 @@ android {
 }
 
 dependencies {
-    def composeBom = platform("androidx.compose:compose-bom:2024.02.00")
-    implementation composeBom
-    androidTestImplementation composeBom
+    // Feste Compose-Version statt BOM, um Inkompatibilitäten mit älteren Gradle-Versionen zu vermeiden
+    def composeVersion = "1.6.2"
 
     implementation "androidx.core:core-ktx:1.12.0"
     implementation "androidx.activity:activity-compose:1.8.2"
-    implementation "androidx.compose.ui:ui"
-    implementation "androidx.compose.ui:ui-tooling-preview"
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
     implementation "androidx.compose.material3:material3:1.2.0"
-    debugImplementation "androidx.compose.ui:ui-tooling"
+
+    // Material Design 3 XML-Themes (für Theme.Material3.DayNight.NoActionBar)
+    implementation "com.google.android.material:material:1.12.0"
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
 
     // Icons (für Buttons etc.)
-    implementation "androidx.compose.material:material-icons-extended:1.6.2"
+    implementation "androidx.compose.material:material-icons-extended:$composeVersion"
 
     // Lifecycle / ViewModel
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
@@ -70,7 +74,11 @@ dependencies {
     // Netzwerk: Retrofit + OkHttp + Moshi
     implementation "com.squareup.retrofit2:retrofit:2.11.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.11.0"
+    implementation "com.squareup.moshi:moshi:1.15.1"
+    implementation "com.squareup.moshi:moshi-kotlin:1.15.1"
+    ksp "com.squareup.moshi:moshi-kotlin-codegen:1.15.1"
     implementation "com.squareup.okhttp3:okhttp:4.12.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.12.0"
 
     // Sichere Speicherung: EncryptedSharedPreferences über Android Keystore
     implementation "androidx.security:security-crypto-ktx:1.1.0-alpha06"
@@ -78,6 +86,6 @@ dependencies {
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:1.1.5"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
 }
 
