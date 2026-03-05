@@ -1,0 +1,3 @@
+rootProject.name = "Arrdroid"
+include(":app")
+
