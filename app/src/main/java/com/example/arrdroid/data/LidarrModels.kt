@@ -92,3 +92,11 @@ data class CommandResponseDto(
     val started: String?
 )
 
+@JsonClass(generateAdapter = true)
+data class RootFolderDto(
+    val id: Int?,
+    val path: String?,
+    val freeSpace: Long?,
+    val totalSpace: Long?
+)
+

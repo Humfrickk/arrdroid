@@ -38,6 +38,7 @@ import com.example.arrdroid.ui.screens.SettingsScreen
 import com.example.arrdroid.ui.screens.WantedScreen
 import com.example.arrdroid.ui.theme.ArrdroidTheme
 import com.example.arrdroid.viewmodel.ArtistViewModel
+import com.example.arrdroid.viewmodel.HomeViewModel
 import com.example.arrdroid.viewmodel.SettingsViewModel
 import com.example.arrdroid.viewmodel.WantedViewModel
 
@@ -91,6 +92,9 @@ private fun ArrdroidNavHost() {
     val settingsViewModel: SettingsViewModel = viewModel(
         factory = SettingsViewModel.Factory(context)
     )
+    val homeViewModel: HomeViewModel = viewModel(
+        factory = HomeViewModel.Factory(context)
+    )
     val wantedViewModel: WantedViewModel = viewModel(
         factory = WantedViewModel.Factory(context)
     )
@@ -136,20 +140,7 @@ private fun ArrdroidNavHost() {
         ) {
             composable(Routes.HOME) {
                 HomeScreen(
-                    onOpenSettings = {
-                        navController.navigate(Routes.SETTINGS) {
-                            popUpTo(Routes.HOME) { saveState = true }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    },
-                    onOpenWanted = {
-                        navController.navigate(Routes.WANTED) {
-                            popUpTo(Routes.HOME) { saveState = true }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
+                    viewModel = homeViewModel
                 )
             }
 

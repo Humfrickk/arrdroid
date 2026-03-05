@@ -59,6 +59,9 @@ interface LidarrApi {
         @Query("blocklist") blocklist: Boolean = false
     )
 
+    @GET("rootfolder")
+    suspend fun getRootFolders(): List<RootFolderDto>
+
     @GET("system/status")
     suspend fun getSystemStatus(): SystemStatusDto
 

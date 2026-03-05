@@ -6,6 +6,7 @@ import com.example.arrdroid.data.CommandResponseDto
 import com.example.arrdroid.data.LidarrApi
 import com.example.arrdroid.data.LidarrApiFactory
 import com.example.arrdroid.data.QueueItemDto
+import com.example.arrdroid.data.RootFolderDto
 import com.example.arrdroid.data.Settings
 import com.example.arrdroid.data.SettingsStorage
 import com.example.arrdroid.data.SystemStatusDto
@@ -62,6 +63,14 @@ class LidarrRepository(
 
     suspend fun removeFromQueue(id: Int): Result<Unit> = runCatching {
         requireApi().getOrThrow().removeFromQueue(id)
+    }
+
+    suspend fun getRootFolders(): Result<List<RootFolderDto>> = runCatching {
+        requireApi().getOrThrow().getRootFolders()
+    }
+
+    suspend fun getSystemStatus(): Result<SystemStatusDto> = runCatching {
+        requireApi().getOrThrow().getSystemStatus()
     }
 
     suspend fun testConnection(): Result<SystemStatusDto> {
