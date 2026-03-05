@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arrdroid.app-mergeDebugResources-64:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "com.example.arrdroid.app-mergeDebugResources-66:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\9.0.0\\transforms\\d1c934059810dc47be4c3cf5698518c1\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",

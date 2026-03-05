@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MusicNote
-import androidx.compose.material.icons.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -35,6 +35,7 @@ import com.example.arrdroid.ui.screens.ArtistDetailScreen
 import com.example.arrdroid.ui.screens.ArtistListScreen
 import com.example.arrdroid.ui.screens.HomeScreen
 import com.example.arrdroid.ui.screens.SettingsScreen
+import com.example.arrdroid.ui.screens.SplashScreen
 import com.example.arrdroid.ui.screens.WantedScreen
 import com.example.arrdroid.ui.theme.ArrdroidTheme
 import com.example.arrdroid.viewmodel.ArtistViewModel
@@ -60,6 +61,7 @@ class MainActivity : ComponentActivity() {
 // ── Navigation routes ────────────────────────────────────────────────
 
 private object Routes {
+    const val SPLASH = "splash"
     const val HOME = "home"
     const val ARTISTS = "artists"
     const val ARTIST_DETAIL = "artist/{artistId}"
@@ -78,7 +80,7 @@ private data class BottomNavItem(
 private val bottomNavItems = listOf(
     BottomNavItem(Routes.HOME, "Home", Icons.Default.Home),
     BottomNavItem(Routes.ARTISTS, "Künstler", Icons.Default.MusicNote),
-    BottomNavItem(Routes.WANTED, "Wanted", Icons.Default.PlaylistAdd),
+    BottomNavItem(Routes.WANTED, "Wanted", Icons.AutoMirrored.Filled.PlaylistAdd),
     BottomNavItem(Routes.SETTINGS, "Settings", Icons.Default.Settings),
 )
 
@@ -105,7 +107,6 @@ private fun ArrdroidNavHost() {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
 
-    // Zeige BottomBar nur auf den vier Haupt-Tabs
     val showBottomBar = currentRoute in bottomNavItems.map { it.route }
 
     Scaffold(
@@ -135,9 +136,19 @@ private fun ArrdroidNavHost() {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = Routes.HOME,
+            startDestination = Routes.SPLASH,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable(Routes.SPLASH) {
+                SplashScreen(
+                    onSplashFinished = {
+                        navController.navigate(Routes.HOME) {
+                            popUpTo(Routes.SPLASH) { inclusive = true }
+                        }
+                    }
+                )
+            }
+
             composable(Routes.HOME) {
                 HomeScreen(
                     viewModel = homeViewModel

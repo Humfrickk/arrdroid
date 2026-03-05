@@ -1,0 +1,34 @@
+# Built APKs
+*.apk
+*.aab
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Local config (enthält SDK-Pfade)
+local.properties
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Signing keys
+*.jks
+*.keystore
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+

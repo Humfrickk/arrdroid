@@ -1,4 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res"><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_foreground" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-anydpi-v26\ic_launcher_foreground.xml" qualifiers="anydpi-v26" type="mipmap"/><file path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.Arrdroid" parent="Theme.Material3.DayNight.NoActionBar">
-        
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res"><file name="ic_launcher_background" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\drawable\ic_launcher_background.xml" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\drawable\ic_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-hdpi\ic_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-hdpi\ic_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-mdpi\ic_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-mdpi\ic_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xhdpi\ic_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xhdpi\ic_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xxhdpi\ic_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xxxhdpi\ic_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\values\font_certs.xml" qualifiers=""><array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array><string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYD
+            VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4g
+            Vmlldzlma4GA1UEChMGR29vZ2xlMRAwDgYDVQQLEwdBbmRyb2lkMRAwDgYDVQQD
+            EwdBbmRyb2lkMSIwIAYJKoZIhvcNAQkBFhNhbmRyb2lkQGFuZHJvaWQuY29tMB4X
+            DTA4MDgyMTIzMTM1NFoXDTM2MDEwNjIzMTM1NFowgZQxCzAJBgNVBAYTAlVTMRMw
+            EQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRAwDgYD
+            VQQKEwdBbmRyb2lkMRAwDgYDVQQLEwdBbmRyb2lkMRAwDgYDVQQDEwdBbmRyb2lk
+            MSIwIAYJKoZIhvcNAQkBFhNhbmRyb2lkQGFuZHJvaWQuY29tMIIBIjANBgkqhkiG
+            9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtMliT3DwUzY4RVbgJaJbo5ixzOkBajMBGxJH
+            HYKprGOmqXEymbaIyKpUMYe9MqBHakXJDChHrTm+4k0mMYookOY0bHBpGnJLjVwE
+            U8RNI3MxChSPzkBnsfWwXjDmrFOJBUCHMO3DWlXDXp3w3z3Ep3elKJQ2VQxJGIh
+            fSlGbMBqLOgEkmMFJCMcJkMBaD+PGlDP00Wx5JqGDj8c+GN6FVf2FMbyp3YAh4eI
+            J7N2bRk3IFbVG73EQ1x+zSfrIEN5gS0PorJ+EtGR7JQQg2Mo5MFMJA7DdfKPHCM
+            xCYED+rUhKSIhPIjlHhGTvNPHEHOrb+vN7ssekDYOdZMOwIDAQABo4H8MIH5MB0G
+            A1UdDgQWBBRMNPKf7fImBQHKYrp+MZpUBJnXoTCByQYDVR0jBIHBMIG+gBRMNPKf
+            7fImBQHKYrp+MZpUBJnXoaGBmqSBlzCBlDELMAkGA1UEBhMCVVMxEzARBgNVBAgT
+            CkNhbGlmb3JuaWExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxEDAOBgNVBAoTB0Fu
+            ZHJvaWQxEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWQxIjAgBgkq
+            hkiG9w0BCQEWE2FuZHJvaWRAYW5kcm9pZC5jb22CCQDVhbhsfdO+9TAMBgNVHRME
+            BTADAQH/MA0GCSqGSIb3DQEBBAUAAoIBAQBFz5Bh0fYgn0cCC1j5JLvFzuLF1gmt
+            +b3C0dmVj5MwXWFnERPkP3MR1YIz/somrR0hXr8bAJAhX/NO2a2MERStS24gRjHj
+            PxqziBuGGBES6JNMYysZhz4kHXoMstKaCMJdJKRwjJyEF0GfiEGmS2PSDSwnkp7r
+            0vGBqVjBFsRp9t0l0sBPEFKfhOW0V0BSSGM2TMfLRTjqaB0MrEH/0YSMBarfhzp
+            H+bZdVKzHvndGxI7Flg9L5Is6kDsPrJcSNFBmWVMdp9mZaEXRJIkLCRYo/2cOI7y
+            1g0/DqgAdRr9i/O8CJxXSWj0pBWCR01+SfFnTW2VB9HdOzNnkJsOjq/z
+        </item>
+    </string-array><string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNV
+            BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1Nb3VudGFpbiAg
+            Vmlldzlma4GA1UECgwGR29vZ2xlMQ4wDAYDVQQLDAVBbmRyb2lkMQ4wDAYDVQQD
+            DAVBbmRyb2lkMB4XDTA4MDgyMTIzMTMzNFoXDTM2MDEwNjIzMTMzNFowdDELMAkG
+            A1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDU1vdW50YWlu
+            IFZpZXcxEDAOBgNVBAoMB0dvb2dsZTEOMAwGA1UECwwFQW5kcm9pZDEOMAwGA1UE
+            AwwFQW5kcm9pZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKtWLgDY
+            O6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b
+            +3JKkedEPsd/ryA3UPODhsI6n/LSk2GaI0vdJXgHdMQKzq1m0t69u0ZP/HCGoJ0C
+            FaRk2SA2q4lqnUtRMR+PRzXhKGKSUIOhCDOV1HNSEcC2klzjPZEFkzjTmJzm51lw
+            oGRFSfY1SHuHJoMIh1MJBFZWEOY8vvGBW54KY8al2vN4MOSBpUEFpRBJCHX18Xsk
+            WudDMbr6U0jPFoT+nV1/nBb04UYnLaAEcULzA1MFoDS6Wwmtk+2V1O2U9eCFuXa
+            SkfVoHrT3VQMMIP/TCBnMAgHAoIBAH7BVuYoep9bEfOI+FZAmz7Kg+U8Bkra3D8L
+            Eap5KI2K+q/v8+EB26ZFrlaWGpikp34IkHIwNeKtms2KFHPzVDx5Kj2J8kH6K0aR
+            jGGhLb1wAq74gJMJOcBqNNLjBadFqwl6POVIIaRFARkJYGH+lx/2NRCZaFVSfY6t
+            eaEgkE/NXpFMeqj3eirGEIf0FNgg1fDBOqqxJBcETO7Wp2TJHWDj3BXPaFVe6M2U
+            ZvIO5E2BqaQ7va9bM70lt7dWCIJzhbWQxgO7HNiE2gTiCKlyLBFaHh2lzbCTXYCY
+            b2dKHrtKel+b/8P02HXbCS3Zh1f/oEbXbbmKLzUoe6yncsAqDWA=
+        </item>
+    </string-array></file><file path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.Arrdroid" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">#FF1A1A1A</item>
+        <item name="android:statusBarColor">#FF1A1A1A</item>
+        <item name="android:navigationBarColor">#FF1A1A1A</item>
     </style></file><file name="network_security_config" path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\main\res\xml\network_security_config.xml" qualifiers="" type="xml"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Admin\Documents\vibecode\arrdroid\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>

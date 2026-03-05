@@ -39,9 +39,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.arrdroid.ui.theme.Lila
+import com.example.arrdroid.ui.theme.Orange
+import com.example.arrdroid.ui.theme.RobotoMono
 import com.example.arrdroid.viewmodel.DiskSpaceUi
 import com.example.arrdroid.viewmodel.HomeUiState
 import com.example.arrdroid.viewmodel.HomeViewModel
@@ -59,7 +65,15 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Column {
-                        Text("Arrdroid")
+                        Text(
+                            text = "Arrdroid",
+                            fontFamily = RobotoMono,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 22.sp,
+                            style = TextStyle(
+                                brush = Brush.linearGradient(colors = listOf(Orange, Lila))
+                            )
+                        )
                         if (state.serverVersion != null) {
                             Text(
                                 text = "Lidarr v${state.serverVersion}",

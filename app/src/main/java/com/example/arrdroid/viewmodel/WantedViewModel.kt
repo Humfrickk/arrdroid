@@ -16,7 +16,8 @@ data class WantedAlbumUi(
     val id: Int,
     val title: String,
     val artistName: String?,
-    val releaseYear: String?
+    val releaseYear: String?,
+    val coverUrl: String?
 )
 
 enum class WantedSortMode {
@@ -54,11 +55,15 @@ class WantedViewModel(
             _uiState.value = result.fold(
                 onSuccess = { albums ->
                     val mapped = albums.map {
+                        val cover = it.images
+                            ?.firstOrNull { img -> img.coverType == "cover" }
+                            ?.let { img -> img.remoteUrl ?: img.url }
                         WantedAlbumUi(
                             id = it.id,
                             title = it.title,
                             artistName = it.artist?.artistName,
-                            releaseYear = it.releaseDate?.take(4)
+                            releaseYear = it.releaseDate?.take(4),
+                            coverUrl = cover
                         )
                     }
                     WantedUiState(

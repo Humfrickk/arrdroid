@@ -1,8 +1,6 @@
 package com.example.arrdroid.ui.theme
 
 import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.Typography
@@ -11,36 +9,67 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.googlefonts.Font
+import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.core.view.WindowCompat
 
-// ── Lidarr-inspirierte Farben ────────────────────────────────────────
-private val Green400 = Color(0xFF66BB6A)
-private val Green300 = Color(0xFF81C784)
-private val Green700 = Color(0xFF388E3C)
-private val SurfaceDark = Color(0xFF121212)
-private val SurfaceContainer = Color(0xFF1E1E1E)
-private val SurfaceContainerHigh = Color(0xFF2A2A2A)
-private val OnSurface = Color(0xFFE0E0E0)
-private val OnSurfaceVariant = Color(0xFF9E9E9E)
-private val ErrorRed = Color(0xFFEF5350)
+// ── Google Fonts Provider ────────────────────────────────────────────
+val provider = GoogleFont.Provider(
+    providerAuthority = "com.google.android.gms.fonts",
+    providerPackage = "com.google.android.gms",
+    certificates = com.example.arrdroid.R.array.com_google_android_gms_fonts_certs
+)
+
+val RobotoMonoFont = GoogleFont("Roboto Mono")
+
+val RobotoMono = FontFamily(
+    Font(googleFont = RobotoMonoFont, fontProvider = provider, weight = FontWeight.Light),
+    Font(googleFont = RobotoMonoFont, fontProvider = provider, weight = FontWeight.Normal),
+    Font(googleFont = RobotoMonoFont, fontProvider = provider, weight = FontWeight.Medium),
+    Font(googleFont = RobotoMonoFont, fontProvider = provider, weight = FontWeight.SemiBold),
+    Font(googleFont = RobotoMonoFont, fontProvider = provider, weight = FontWeight.Bold),
+)
+
+// ── Orange → Lila Gradient Colors ────────────────────────────────────
+val Orange = Color(0xFFFF8C00)           // Deep Orange
+val OrangeLight = Color(0xFFFFAB40)      // Light Orange
+val Lila = Color(0xFFAB47BC)             // Purple/Lila
+val LilaLight = Color(0xFFCE93D8)        // Light Lila
+val LilaDark = Color(0xFF7B1FA2)         // Dark Purple
+
+val DarkBackground = Color(0xFF1A1A1A)   // Dark gray background
+val DarkSurface = Color(0xFF1A1A1A)      // Same as background
+val DarkSurfaceContainer = Color(0xFF242424)
+val DarkSurfaceContainerHigh = Color(0xFF2E2E2E)
+val OnSurface = Color(0xFFE8E8E8)
+val OnSurfaceVariant = Color(0xFFA0A0A0)
+val ErrorRed = Color(0xFFEF5350)
 
 private val ArrdroidDarkColors = darkColorScheme(
-    primary = Green400,
+    primary = Orange,
     onPrimary = Color.Black,
-    primaryContainer = Green700,
-    onPrimaryContainer = Green300,
-    secondary = Color(0xFF80CBC4),
+    primaryContainer = Color(0xFF6D3A00),
+    onPrimaryContainer = OrangeLight,
+    secondary = LilaLight,
     onSecondary = Color.Black,
-    background = SurfaceDark,
+    secondaryContainer = LilaDark,
+    onSecondaryContainer = LilaLight,
+    tertiary = Lila,
+    onTertiary = Color.White,
+    tertiaryContainer = LilaDark,
+    onTertiaryContainer = LilaLight,
+    background = DarkBackground,
     onBackground = OnSurface,
-    surface = SurfaceDark,
+    surface = DarkSurface,
     onSurface = OnSurface,
-    surfaceVariant = SurfaceContainerHigh,
+    surfaceVariant = DarkSurfaceContainerHigh,
     onSurfaceVariant = OnSurfaceVariant,
-    surfaceContainerLow = Color(0xFF171717),
-    surfaceContainer = SurfaceContainer,
-    surfaceContainerHigh = SurfaceContainerHigh,
+    surfaceContainerLow = Color(0xFF1E1E1E),
+    surfaceContainer = DarkSurfaceContainer,
+    surfaceContainerHigh = DarkSurfaceContainerHigh,
     error = ErrorRed,
     onError = Color.Black,
     outline = Color(0xFF555555),
@@ -64,8 +93,8 @@ fun ArrdroidTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = SurfaceDark.toArgb()
-            window.navigationBarColor = SurfaceDark.toArgb()
+            window.statusBarColor = DarkBackground.toArgb()
+            window.navigationBarColor = DarkBackground.toArgb()
             WindowCompat.getInsetsController(window, view).apply {
                 isAppearanceLightStatusBars = false
                 isAppearanceLightNavigationBars = false
@@ -79,4 +108,3 @@ fun ArrdroidTheme(
         content = content
     )
 }
-

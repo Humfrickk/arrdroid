@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arrdroid.app-mergeDebugResources-64:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.arrdroid.app-mergeDebugResources-66:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\9.0.0\\transforms\\97da5ab9f1a510e56a678df1436af3ba\\transformed\\appcompat-1.6.1\\res\\values-en-rGB\\values-en-rGB.xml",

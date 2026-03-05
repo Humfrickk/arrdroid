@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arrdroid.app-mergeDebugResources-64:/values-es/values-es.xml",
+            "outputFile": "com.example.arrdroid.app-mergeDebugResources-66:/values-es/values-es.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\9.0.0\\transforms\\7eb3b8c251ac66add0960b533e0f1bd4\\transformed\\jetified-ui-release\\res\\values-es\\values-es.xml",

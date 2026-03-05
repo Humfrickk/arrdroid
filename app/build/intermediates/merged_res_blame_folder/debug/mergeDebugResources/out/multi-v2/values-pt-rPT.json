@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arrdroid.app-mergeDebugResources-64:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.arrdroid.app-mergeDebugResources-66:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\9.0.0\\transforms\\53d82f06c45b813f08c1bcc24b119808\\transformed\\jetified-material3-release\\res\\values-pt-rPT\\values-pt-rPT.xml",

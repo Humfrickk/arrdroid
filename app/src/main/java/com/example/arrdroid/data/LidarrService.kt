@@ -9,10 +9,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.util.concurrent.TimeUnit
 
 interface LidarrApi {
 
@@ -82,6 +82,9 @@ object LidarrApiFactory {
         val normalizedUrl = normalizeBaseUrl(baseUrl)
 
         val clientBuilder = OkHttpClient.Builder()
+            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(15, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val request = chain.request()
                     .newBuilder()
@@ -90,11 +93,13 @@ object LidarrApiFactory {
                 chain.proceed(request)
             }
 
-        // Für Produktion kannst du das Logging reduzieren oder entfernen
-        val logging = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
+        // Logging nur im Debug-Build, und nur BASIC (keine Bodies/Headers mit API-Key)
+        if (com.example.arrdroid.BuildConfig.DEBUG) {
+            val logging = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BASIC
+            }
+            clientBuilder.addInterceptor(logging)
         }
-        clientBuilder.addInterceptor(logging)
 
         val moshi = Moshi.Builder()
             .addLast(KotlinJsonAdapterFactory())

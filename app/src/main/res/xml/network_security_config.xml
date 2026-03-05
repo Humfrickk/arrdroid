@@ -3,6 +3,8 @@
     <!--
         Cleartext (HTTP) wird erlaubt, weil Lidarr im lokalen Netzwerk
         häufig ohne TLS/HTTPS läuft.
+        Der API-Key wird über EncryptedSharedPreferences gesichert und
+        nur über den X-Api-Key Header gesendet.
         Für Zugriff über das Internet sollte unbedingt HTTPS verwendet werden.
     -->
     <base-config cleartextTrafficPermitted="true">
@@ -11,5 +13,3 @@
         </trust-anchors>
     </base-config>
 </network-security-config>
-
-

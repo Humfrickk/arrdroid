@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arrdroid.app-mergeDebugResources-64:/values-ko/values-ko.xml",
+            "outputFile": "com.example.arrdroid.app-mergeDebugResources-66:/values-ko/values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\9.0.0\\transforms\\d368c1b95129713f9f83c16a0f5ce29c\\transformed\\jetified-foundation-release\\res\\values-ko\\values-ko.xml",

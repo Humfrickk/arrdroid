@@ -15,9 +15,21 @@ class LidarrRepository(
     private val settingsStorage: SettingsStorage
 ) {
 
+    // Cache: Vermeidet Neuerstellen von Retrofit/OkHttp bei jedem Aufruf
+    private var cachedApi: LidarrApi? = null
+    private var cachedBaseUrl: String? = null
+    private var cachedApiKey: String? = null
+
     private fun apiOrNull(): LidarrApi? {
         val settings = settingsStorage.load() ?: return null
-        return LidarrApiFactory.create(settings.baseUrl, settings.apiKey)
+        // Nur neu erstellen wenn sich URL oder Key geändert haben
+        if (cachedApi != null && settings.baseUrl == cachedBaseUrl && settings.apiKey == cachedApiKey) {
+            return cachedApi
+        }
+        cachedBaseUrl = settings.baseUrl
+        cachedApiKey = settings.apiKey
+        cachedApi = LidarrApiFactory.create(settings.baseUrl, settings.apiKey)
+        return cachedApi
     }
 
     private fun requireApi(): Result<LidarrApi> {
